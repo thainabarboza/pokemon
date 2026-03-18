@@ -1,0 +1,28 @@
+header {
+    height: 89px;
+    width: 100%;
+    background-color: var(--background-ligthblue)
+}
+
+.logo {
+    margin-left: 62px;
+    padding-top: 13px;
+}
+
+.menu {
+    display: flex;
+    gap: 12px;
+    position: absolute;
+    top: 30px;
+    right: 62px;
+}
+
+.menu img {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.pokeball {
+    width: 30px !important;
+} 

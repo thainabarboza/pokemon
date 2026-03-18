@@ -1,0 +1,73 @@
+
+.container-card {
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    padding: 10px;
+    margin-left: 62px;
+    margin-right: 62px;
+}
+
+.card {
+    width: 200px;
+    height: 282px;
+    background-color: var(--background-ligthblue);
+    border-radius: 15px;
+    margin-bottom: 33px;
+}
+.topo-card{
+    display: flex;
+    justify-content: center;
+    gap: 85px;
+    align-items: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.topo-card p {
+    margin: 0;
+    color: var(--secondary-color);
+}
+
+.topo-card img {
+    width: 25px;
+    height: 25px;
+}
+
+.img-card{
+    display: flex;
+    justify-content: center;
+}
+
+.img-card img {
+    width: 125px;
+    height: 130px;
+    border-radius: 15px;
+}
+
+h3 {
+    text-align: center;
+    color: var(--secondary-color);
+    font-size: 18px;
+}
+
+.elements {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.tag-element {
+    width: 70px;
+    height: 20px;
+    border-radius: 15px;
+    border: none;
+    background-color: red;
+    color: var(--primary-color);
+}
+
+span {
+    font-size: 14px;
+}

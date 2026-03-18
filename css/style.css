@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+}
+
+input::-webkit-input-placeholder {
+    font-size: 18px;
+    font-family: "Nunito", sans-serif;
+    color: #133976;
+}
+
+:root {
+    --primary-color:#DDE7F5;
+    --secondary-color:#133976;
+    --background:#133976;
+    --background-ligthblue:#DDE7F5;
+    --background-input: #FFFCF8;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin: 0;
+    padding-top: 32px;
+    padding-bottom: 38px;
+    margin-left: 62px;
+    font-size: 28px ;
+
+}
+
+main {
+    background-color: var(--background);
+    height: calc(100vh - 129px);
+    overflow: auto;
+}
+
+footer {
+    text-align: center;
+    color: var(secondary-color);
+    background-color: var(--background-ligthblue);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+footer p {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--secondary-color);
+}
+
+footer p a {
+    text-decoration: none;
+    color: inherit;
+}
