@@ -26,3 +26,9 @@ header {
 .pokeball {
     width: 30px !important;
 } 
+
+.btn-header-fav {
+    border: none;
+    background-color: var(--background-ligthblue);
+    cursor: pointer;
+}

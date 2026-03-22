@@ -53,3 +53,81 @@ footer p a {
     text-decoration: none;
     color: inherit;
 }
+
+.btn-favorito {
+    border: none;
+    background-color: var(--background-ligthblue);
+    cursor: pointer;
+}
+
+.tag-element.normal {
+    background-color: #898F95;
+}
+
+.tag-element.fire {
+    background-color: #FF7B19;
+}
+
+.tag-element.water {
+    background-color: #3F90E9;
+}
+
+.tag-element.electric {
+    background-color: #FDD318;
+}
+
+.tag-element.grass {
+    background-color: #55C849;
+}
+
+.tag-element.ice {
+    background-color: #98E0D5;
+}
+
+.tag-element.fighting {
+    background-color: #E62C64;
+}
+
+.tag-element.poison {
+    background-color: #B83EDF;
+}
+
+.tag-element.ground {
+    background-color: #F27330;
+}
+
+.tag-element.flying {
+    background-color: #82AFFD;
+}
+
+.tag-element.psychic {
+    background-color: #FF6A73;
+}
+
+.tag-element.bug {
+    background-color: #99D421;
+}
+
+.tag-element.rock {
+    background-color: #C4B68D;
+}
+
+.tag-element.ghost {
+    background-color: #556BAB;
+}
+
+.tag-element.dragon {
+    background-color: #0E67B5;
+}
+
+.tag-element.dark {
+    background-color: #585263;
+}
+
+.tag-element.steel {
+    background-color: #5392AA;
+}
+
+.tag-element.fairy {
+    background-color: #F075E8;
+}
