@@ -55,7 +55,7 @@
 .topo-card{
     display: flex;
     justify-content: center;
-    gap: 85px;
+    gap: 100px;
     align-items: center;
     margin-top: 12px;
     margin-bottom: 12px;
@@ -81,6 +81,9 @@
 .img-card{
     display: flex;
     justify-content: center;
+    background-color: var(--background-ligthblue);
+    border: none;
+    width: 100%;
 }
 
 .img-card img {
@@ -99,7 +102,6 @@ h3 {
 .elements {
     display: flex;
     text-align: center;
-    justify-content: space-between;
     gap: 16px;
     padding: 0 10px;
 }

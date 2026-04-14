@@ -18,9 +18,11 @@ async function getPokemons() {
                                 <img src="svg/material-symbols_favorite-outline-rounded.svg">
                             </button> 
                         </div>
-                        <div class="img-card">
-                            <img src="${pokemon.sprites.other["official-artwork"].front_default}" alt="">
-                        </div>
+                        <button class="img-card">
+                            <a href="./pagePokemon.html">
+                                <img src="${pokemon.sprites.other["official-artwork"].front_default}" alt="">
+                            </a>
+                        </button>
                         <h3>${pokemon.name}</h3>
                         <div class="elements">
                             ${pokemon.types.map(elemento => `
