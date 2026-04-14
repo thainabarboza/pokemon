@@ -29,7 +29,6 @@ h1 {
 
 main {
     background-color: var(--background);
-    height: calc(100vh - 129px);
     overflow: auto;
 }
 
