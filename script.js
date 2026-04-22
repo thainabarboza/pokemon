@@ -28,7 +28,7 @@ async function getPokemons() {
                                 </button> 
                             </div>
                             <button class="img-card">
-                                <a href="./pagePokemon.html">
+                                <a href="./pagePokemon.html?id=${pokemons[i].id}">
                                     <img src="${pokemons[i].sprites.other["official-artwork"].front_default}" alt="">
                                 </a>
                             </button>
@@ -53,9 +53,11 @@ async function getPokemons() {
         loading = false;
         offset += 24
     }
+
 }  
 
 getPokemons();
+
 
 window.addEventListener("scroll", () => {
     if (window.scrollY + window.innerHeight + 5 > document.body.scrollHeight - 500) {
