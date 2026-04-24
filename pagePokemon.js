@@ -55,12 +55,19 @@ async function getPokemon() {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${myParam}`);
     const data = await response.json();
 
+    let weightHectograms = data.weight;
+    let weightKg = weightHectograms / 10;
+
+    let heightCm = data.height;
+    let heightMetros = heightCm / 10
+   
+
     containerPage.innerHTML = `
         <div class="image-page">
             <img src="${data.sprites.other['official-artwork'].front_default}" class="image-pokemon">
         </div>
         <div class="content-page">
-            <p>00${data.id}</p>
+            <p>0${data.id}</p>
             <div class="name-pokemon">
                 <h2>${data.name}</h2> 
                 <button class="btn-sound"><img src="svg/som.svg"></button>
@@ -74,9 +81,8 @@ async function getPokemon() {
 
             <div class="container-info-pokemon">
                 <div class="info-pokemon">
-                    <p>Altura: 10cm</p>
-                    <p>Peso: 20kg</p>
-                    <p>Gênero:</p>
+                    <p>Height: ${heightMetros}m</p>
+                    <p>Weight: ${weightKg}kg</p>
                 </div>
                 <ul class="skills-pokemon">Abilities:
                 <li>${data.abilities[0].ability.name}</li>
@@ -97,9 +103,48 @@ async function getPokemon() {
             </div>
         </div>
     </div>`
-
 }
 getPokemon()
+
+async function verificaEvolucao(chain) {
+
+    const urlSpecie = chain.species.url.split('/').filter(Boolean);
+    const speciePokemon = urlSpecie [urlSpecie.length - 1 ];
+    
+    const responseThree = await fetch(`https://pokeapi.co/api/v2/pokemon/${speciePokemon}`)
+    const pokeEvol = await responseThree.json()
+    
+    let containerEvolution = document.querySelector(".container-evolution");
+
+    containerEvolution.innerHTML += 
+        `<div class="img-pk">
+            <img src="${pokeEvol.sprites.other["official-artwork"].front_default}" class="image-evolition"/>
+            <p>0${pokeEvol.id}</p>
+            <p>${pokeEvol.name}</p>
+        </div>`
+
+
+
+    if(chain.evolves_to.length > 0) {
+        verificaEvolucao(chain.evolves_to[0])
+    }
+    
+}
+
+
+async function getEvolution() {
+    const responseTwo = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${myParam}`);
+    const dataTwo = await responseTwo.json();
+    const infoEvolution = (await fetch(`${dataTwo.evolution_chain.url}`));
+    const infoUrlEvolution = await infoEvolution.json();
+
+    verificaEvolucao(infoUrlEvolution.chain)
+
+    
+}
+
+getEvolution()
+
 
 
 
