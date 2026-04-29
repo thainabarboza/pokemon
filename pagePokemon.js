@@ -51,58 +51,65 @@ if (!myParam) {
 }
 
 async function getPokemon() {
+ 
+    try {
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${myParam}`);
+        const data = await response.json();
 
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${myParam}`);
-    const data = await response.json();
+        let weightHectograms = data.weight;
+        let weightKg = weightHectograms / 10;
 
-    let weightHectograms = data.weight;
-    let weightKg = weightHectograms / 10;
-
-    let heightCm = data.height;
-    let heightMetros = heightCm / 10
-   
-
-    containerPage.innerHTML = `
-        <div class="image-page">
-            <img src="${data.sprites.other['official-artwork'].front_default}" class="image-pokemon">
-        </div>
-        <div class="content-page">
-            <p>0${data.id}</p>
-            <div class="name-pokemon">
-                <h2>${data.name}</h2> 
-                <button class="btn-sound"><img src="svg/som.svg"></button>
+        let heightCm = data.height;
+        let heightMetros = heightCm / 10
+    
+        console.log(response)
+        containerPage.innerHTML = `
+            <div class="image-page">
+                <img src="${data.sprites.other['official-artwork'].front_default}" class="image-pokemon">
             </div>
-            <div class="elements">
-                ${data.types.map(elemento =>` 
-                <div class="tag-element ${elemento.type.name}">
-                    <span>${elemento.type.name}</span>
-                </div>`).join('')}
-            </div>
-
-            <div class="container-info-pokemon">
-                <div class="info-pokemon">
-                    <p>Height: ${heightMetros}m</p>
-                    <p>Weight: ${weightKg}kg</p>
+            <div class="content-page">
+                <p>0${data.id}</p>
+                <div class="name-pokemon">
+                    <h2>${data.name}</h2> 
+                    <button class="btn-sound"><img src="svg/som.svg"></button>
                 </div>
-                <ul class="skills-pokemon">Abilities:
-                <li>${data.abilities[0].ability.name}</li>
-                </ul>
-                <ul class="weakness-pokemon">Weakness:
-                    ${data.types.map(elemento => 
-                        fraquezas[`${elemento.type.name}`].map(tipo => `
-                            <li>${tipo}</li>
-                        `).join('')
-                ).join('')}
-                </ul>
-                <ul class="weakness-pokemon">Advantages:
-                    ${data.types.map(elemento =>
-                        vantagens[`${elemento.type.name}`].map(tipo => `
-                            <li>${tipo}</li>`).join('')
+                <div class="elements">
+                    ${data.types.map(elemento =>` 
+                    <div class="tag-element ${elemento.type.name}">
+                        <span>${elemento.type.name}</span>
+                    </div>`).join('')}
+                </div>
+
+                <div class="container-info-pokemon">
+                    <div class="info-pokemon">
+                        <p>Height: ${heightMetros}m</p>
+                        <p>Weight: ${weightKg}kg</p>
+                    </div>
+                    <ul class="skills-pokemon">Abilities:
+                    <li>${data.abilities[0].ability.name}</li>
+                    </ul>
+                    <ul class="weakness-pokemon">Weakness:
+                        ${data.types.map(elemento => 
+                            fraquezas[`${elemento.type.name}`].map(tipo => `
+                                <li>${tipo}</li>
+                            `).join('')
                     ).join('')}
-                </ul>
+                    </ul>
+                    <ul class="weakness-pokemon">Advantages:
+                        ${data.types.map(elemento =>
+                            vantagens[`${elemento.type.name}`].map(tipo => `
+                                <li>${tipo}</li>`).join('')
+                        ).join('')}
+                    </ul>
+                </div>
             </div>
-        </div>
-    </div>`
+        </div>`
+         
+    } catch(error) {
+        console.log(error)
+        containerPage.innerHTML = `<h1>ERRO</h1>`
+    }
+    
 }
 getPokemon()
 
@@ -118,7 +125,9 @@ async function verificaEvolucao(chain) {
 
     containerEvolution.innerHTML += 
         `<div class="img-pk">
-            <img src="${pokeEvol.sprites.other["official-artwork"].front_default}" class="image-evolition"/>
+            <a href="./pagePokemon.html?id=${pokeEvol.id}">
+                <img src="${pokeEvol.sprites.other["official-artwork"].front_default}" class="image-evolition"/>
+            </a>
             <p>0${pokeEvol.id}</p>
             <p>${pokeEvol.name}</p>
         </div>`

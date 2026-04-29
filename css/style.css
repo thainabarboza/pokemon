@@ -130,3 +130,59 @@ footer p a {
 .tag-element.fairy {
     background-color: #F075E8;
 }
+
+.container-fluid {
+    position: relative;
+}
+
+.container-dropdown {
+    position: absolute;
+    top: 90px;    
+    display: flex;
+    justify-content: right;
+    width: 100%;
+    z-index: 1;
+}
+
+.hide {
+    display: none;
+}
+
+.dropdown-content {
+    width: 1300px;
+    height: 440px;
+    background-color: var(--background-ligthblue);
+    border-radius: 0px 0px 15px 15px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    
+}
+
+.dropdown-content a {
+    width: 345px;
+    height: 41px;
+}
+
+.tag-type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-dropdown {
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 100%;
+}
+
+
+
+.btn-dropdown p {
+    color: var(--primary-color);
+    text-align: left;
+    margin:10px;
+    font-family: "Nunito", sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+}

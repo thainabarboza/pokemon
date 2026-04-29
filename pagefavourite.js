@@ -1,18 +1,18 @@
 let containerCard = document.querySelector(".container-card");
 let loading = false;
 let offset = 0;
+const keys = Object.keys(localStorage);
+
+console.log(keys);
 
 async function getPokemons() {
     if (!loading) {
         loading = true;
-
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=24&offset=${offset}`);
-        const data = await response.json();
-
+    
         let pokemons = []
 
-        for (let i = 0; i < data.results.length; i++) {
-            const infoPokemons = await fetch(`${data.results[i].url}`);
+        for (let i = 0; i < keys.length; i++) {
+            const infoPokemons = await fetch(`https://pokeapi.co/api/v2/pokemon/${keys[i]}`);
             pokemons.push(await infoPokemons.json());
         }
 
@@ -58,13 +58,6 @@ async function getPokemons() {
 
 getPokemons();
 
-
-window.addEventListener("scroll", () => {
-    if (window.scrollY + window.innerHeight + 5 > document.body.scrollHeight - 500) {
-        getPokemons();        
-    }
-})
-
 function handleFavourite(nome, botao) {
     const flipCard = botao.closest(".flip-card");
     const flipInner = flipCard.querySelector(".flip-inner");
@@ -96,5 +89,3 @@ function checkFavourite(nome) {
     }
 }
 
-const keys = Object.keys(localStorage);
-console.log(keys);
