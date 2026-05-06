@@ -10,7 +10,7 @@ async function getPokemons() {
         loading = true;
     
         let pokemons = []
-
+    
         for (let i = 0; i < keys.length; i++) {
             const infoPokemons = await fetch(`https://pokeapi.co/api/v2/pokemon/${keys[i]}`);
             pokemons.push(await infoPokemons.json());
@@ -53,7 +53,7 @@ async function getPokemons() {
         loading = false;
         offset += 24
     }
-
+    
 }  
 
 getPokemons();
@@ -70,12 +70,8 @@ function handleFavourite(nome, botao) {
         localStorage.setItem(nome, 'true');
     }
 
-    // gira para mostrar o verso
-    flipInner.style.transform = "rotateY(180deg)";
-
-    // volta para a frente
     setTimeout(() => {
-        flipInner.style.transform = "rotateY(0deg)";
+        location.reload();
     }, 1000);
 }
 

@@ -41,6 +41,8 @@ const fraquezas = {
 };
 
 let containerPage = document.querySelector(".container-page");
+let titlePokemon = document.querySelector('.title-pokemon');
+let loader = document.querySelector('.loader');
 
 const urlParams = new URLSearchParams(window.location.search);
 const myParam = urlParams.get('id');
@@ -51,9 +53,9 @@ if (!myParam) {
 }
 
 async function getPokemon() {
- 
+    loader.classList.add('loader')
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${myParam}`);
     try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${myParam}`);
         const data = await response.json();
 
         let weightHectograms = data.weight;
@@ -63,6 +65,7 @@ async function getPokemon() {
         let heightMetros = heightCm / 10
     
         console.log(response)
+        titlePokemon.innerHTML = `<h1>Pokémon</h1>`
         containerPage.innerHTML = `
             <div class="image-page">
                 <img src="${data.sprites.other['official-artwork'].front_default}" class="image-pokemon">
@@ -104,12 +107,11 @@ async function getPokemon() {
                 </div>
             </div>
         </div>`
-         
     } catch(error) {
-        console.log(error)
-        containerPage.innerHTML = `<h1>ERRO</h1>`
+         window.location.href="./error.html"
+    } finally {
+        loader.classList.remove('loader')
     }
-    
 }
 getPokemon()
 
@@ -122,7 +124,9 @@ async function verificaEvolucao(chain) {
     const pokeEvol = await responseThree.json()
     
     let containerEvolution = document.querySelector(".container-evolution");
+    let titleEvolution = document.querySelector('.title-evolution');
 
+    titleEvolution.innerHTML = `<h2>Evolution:</h2>`
     containerEvolution.innerHTML += 
         `<div class="img-pk">
             <a href="./pagePokemon.html?id=${pokeEvol.id}">
@@ -153,8 +157,4 @@ async function getEvolution() {
 }
 
 getEvolution()
-
-
-
-
 
