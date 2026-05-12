@@ -23,13 +23,12 @@ h1 {
     padding-top: 32px;
     padding-bottom: 38px;
     margin-left: 62px;
-    font-size: 28px ;
+    font-size: 32px ;
 
 }
 
 main {
     background-color: var(--background);
-    height: calc(100vh - 129px);
     overflow: auto;
 }
 
@@ -52,4 +51,138 @@ footer p {
 footer p a {
     text-decoration: none;
     color: inherit;
+}
+
+.btn-favorito {
+    border: none;
+    background-color: var(--background-ligthblue);
+    cursor: pointer;
+}
+
+.tag-element.normal {
+    background-color: #898F95;
+}
+
+.tag-element.fire {
+    background-color: #FF7B19;
+}
+
+.tag-element.water {
+    background-color: #3F90E9;
+}
+
+.tag-element.electric {
+    background-color: #FDD318;
+}
+
+.tag-element.grass {
+    background-color: #55C849;
+}
+
+.tag-element.ice {
+    background-color: #98E0D5;
+}
+
+.tag-element.fighting {
+    background-color: #E62C64;
+}
+
+.tag-element.poison {
+    background-color: #B83EDF;
+}
+
+.tag-element.ground {
+    background-color: #F27330;
+}
+
+.tag-element.flying {
+    background-color: #82AFFD;
+}
+
+.tag-element.psychic {
+    background-color: #FF6A73;
+}
+
+.tag-element.bug {
+    background-color: #99D421;
+}
+
+.tag-element.rock {
+    background-color: #C4B68D;
+}
+
+.tag-element.ghost {
+    background-color: #556BAB;
+}
+
+.tag-element.dragon {
+    background-color: #0E67B5;
+}
+
+.tag-element.dark {
+    background-color: #585263;
+}
+
+.tag-element.steel {
+    background-color: #5392AA;
+}
+
+.tag-element.fairy {
+    background-color: #F075E8;
+}
+
+.container-fluid {
+    position: relative;
+}
+
+.container-dropdown {
+    position: absolute;
+    top: 90px;    
+    display: flex;
+    justify-content: right;
+    width: 100%;
+    z-index: 1;
+}
+
+.hide {
+    display: none;
+}
+
+.dropdown-content {
+    width: 1300px;
+    height: 440px;
+    background-color: var(--background-ligthblue);
+    border-radius: 0px 0px 15px 15px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    
+}
+
+.dropdown-content a {
+    width: 345px;
+    height: 41px;
+}
+
+.tag-type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-dropdown {
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    width: 100%;
+}
+
+
+
+.btn-dropdown p {
+    color: var(--primary-color);
+    text-align: left;
+    margin:10px;
+    font-family: "Nunito", sans-serif;
+    font-weight: bold;
+    font-size: 15px;
 }

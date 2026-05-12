@@ -36,6 +36,10 @@
     cursor: pointer;
 }
 
+main {
+    height: calc(100vh - 129px);
+}
+
 .mainC {
     height: 100%;
     display: flex;

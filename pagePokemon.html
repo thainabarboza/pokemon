@@ -1,14 +1,15 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/allPokemons.css">
+    <link rel="stylesheet" href="css/pagePokemon.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-    <title>All Pokemons</title>
+    <title>Page Pokemon</title>
     <link rel="shortcut icon" href="svg/Group.svg">
 </head>
 <body>
@@ -30,16 +31,26 @@
             </div>
         </div>
     </header>
+
     <main>
-        <h1>All The Pokémons</h1>
-        <div class="container-card"></div>
+        <div class="container-loader">
+            <div class="loader"></div>
+        </div>
+        
+        <div class="title-pokemon"></div>
+        <div class="container-page"></div>
+
+        <div class="title-evolution"></div>
+        <div class="container-evolution"></div>
+        </div>
     </main>
 
-    <footer>
+     <footer>
         <p>By <a target="_blank" href="https://www.linkedin.com/in/carolainecallau
-        ">Carol </a> and <a target="_blank" href="https://www.linkedin.com/in/thainabarboza/">Thaina</a></p>
+        ">Carol </a> e <a target="_blank" href="https://www.linkedin.com/in/thainabarboza/">Thaina</a></p>
     </footer>
+
     
-    <script src="./js/script.js"></script>
+    <script src="./js/pagePokemon.js"></script>
 </body>
 </html>
