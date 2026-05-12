@@ -1,4 +1,6 @@
-
+main {
+    height: calc(100vh - 129px);
+}
 .container-card {
     display: grid;
     justify-content: space-evenly;
@@ -97,6 +99,11 @@ h3 {
     color: var(--secondary-color);
     font-size: 18px;
     text-transform: capitalize;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .elements {

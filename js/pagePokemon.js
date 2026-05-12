@@ -63,8 +63,7 @@ async function getPokemon() {
 
         let heightCm = data.height;
         let heightMetros = heightCm / 10
-    
-        console.log(response)
+        console.log(data.cries.legacy)
         titlePokemon.innerHTML = `<h1>Pokémon</h1>`
         containerPage.innerHTML = `
             <div class="image-page">
@@ -74,7 +73,6 @@ async function getPokemon() {
                 <p>0${data.id}</p>
                 <div class="name-pokemon">
                     <h2>${data.name}</h2> 
-                    <button class="btn-sound"><img src="svg/som.svg"></button>
                 </div>
                 <div class="elements">
                     ${data.types.map(elemento =>` 

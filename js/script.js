@@ -1,9 +1,14 @@
 let containerCard = document.querySelector(".container-card");
 let loading = false;
 let offset = 0;
+const urlParams = new URLSearchParams(window.location.search);
+const type = urlParams.get('type');
+
 
 async function getPokemons() {
+
     if (!loading) {
+      if(!type) {
         loading = true;
 
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=24&offset=${offset}`);
@@ -52,7 +57,51 @@ async function getPokemons() {
         }
         loading = false;
         offset += 24
-    }
+      } else {
+        const response = await fetch(`https://pokeapi.co/api/v2/type/${type}`);
+        const data = await response.json();
+
+        for(let i = 0; i < data.pokemon.length; i++){
+            const infoType = await fetch(`${data.pokemon[i].pokemon.url}`)
+            const responseType = await infoType.json();
+            
+       
+            containerCard.innerHTML += `
+                <div class="flip-card">
+                    <div class="flip-inner">
+                        <div class="card-front">
+                            <div class="topo-card">
+                                <p>${responseType.id}</p>
+                                <button id="${responseType.name}" class="btn-favorito" onclick="handleFavourite('${responseType.name}', this)">
+                                    <img src="svg/material-symbols_favorite-outline-rounded.svg">
+                                </button> 
+                            </div>
+                            <button class="img-card">
+                                <a href="./pagePokemon.html?id=${responseType.id}">
+                                    <img src="${responseType.sprites.other["official-artwork"].front_default}" alt="">
+                                </a>
+                            </button>
+                            <h3>${responseType.name}</h3>
+                            <div class="elements">
+                                ${responseType.types.map(elemento => `
+                                    <div class="tag-element ${elemento.type.name}">
+                                        <span>${elemento.type.name}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div> 
+
+                        <div class="card-back">
+                            <img class="img-back" src="img/Rectangle 5.png" alt="">
+                        </div>
+                    </div>
+                </div>`;
+
+            checkFavourite(responseType.name);
+        }
+     
+      }
+    } 
 
 }  
 
@@ -60,8 +109,10 @@ getPokemons();
 
 
 window.addEventListener("scroll", () => {
-    if (window.scrollY + window.innerHeight + 5 > document.body.scrollHeight - 500) {
-        getPokemons();        
+    if(!type){
+        if (window.scrollY + window.innerHeight + 5 > document.body.scrollHeight - 500) {
+            getPokemons();        
+        }
     }
 })
 
@@ -97,4 +148,3 @@ function checkFavourite(nome) {
 }
 
 const keys = Object.keys(localStorage);
-console.log(keys);
